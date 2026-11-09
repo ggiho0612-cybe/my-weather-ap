@@ -13,15 +13,11 @@ app.get('/api/weather', async (req, res) => {
     const city = req.query.city || 'Seoul';
 
     try {
-        const openApiUrl = `https://openweathermap.org{city}&appid=${OPEN_WEATHER_MAP_KEY}&units=metric&lang=kr`;
-        
-        const response = await axios.get(openApiUrl);
-        res.json(response.data);
-    } catch (error) {
-        console.error('날씨 데이터 가져오기 실패:', error.message);
-        res.status(500).json({ error: '날씨 정보를 불러오는 데 실패했습니다.' });
-    }
-});
+    const openApiUrl = 'https://openweathermap.org' + city + '&appid=' + OPEN_WEATHER_MAP_KEY + '&units=metric&lang=kr';
+    
+    const response = await axios.get(openApiUrl);
+    res.json(response.data);
+};
 
 app.listen(PORT, () => {
     console.log(`서버가 성공적으로 실행되었습니다!`);
