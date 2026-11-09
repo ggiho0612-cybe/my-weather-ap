@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 날씨 정보 조회</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        h1 { color: #333; margin-bottom: 20px; font-size: 24px; }
+        .search-box { display: flex; gap: 10px; margin-bottom: 25px; }
+        input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; outline: none; font-size: 16px; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .weather-info { margin-top: 20px; display: none; }
+        .city-name { font-size: 22px; font-weight: bold; margin: 0; color: #222; }
+        .temp { font-size: 48px; font-weight: bold; color: #ff5722; margin: 10px 0; }
+        .desc { font-size: 18px; color: #666; margin: 0; }
+        .error { color: red; margin-top: 15px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>실시간 세계 날씨 조회</h1>
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="도시명 입력 (예: Seoul, Tokyo)">
+            <button id="searchBtn">검색</button>
+        </div>
+
+        <div id="loading" style="display: none;">데이터 불러오는 중...</div>
+        
+        <div class="weather-info" id="weatherInfo">
+            <p class="city-name" id="cityName">Seoul</p>
+            <div class="temp" id="tempValue">25°C</div>
+            <p class="desc" id="weatherDesc">맑음</p>
+        </div>
+        
+        <div class="error" id="errorMsg"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
